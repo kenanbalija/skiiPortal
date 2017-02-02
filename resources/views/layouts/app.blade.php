@@ -8,11 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Fahro Ćatović') }}</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="/css/master.css">
+    <!-- Dropzone -->
+    <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -25,7 +27,6 @@
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
@@ -43,6 +44,12 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                      <li><a href="{{ url('/') }}">Početna</a></li>
+                      <li><a href="{{ url('/galerija') }}">Galerija</a></li>
+                      <li><a href="{{ url('/novosti') }}">Novosti</a></li>
+                      <li><a href="{{ url('/rezultati') }}">Rezultati</a></li>
+                      <li><a href="{{ url('/sponzori') }}">Sponzori</a></li>
+
                         &nbsp;
                     </ul>
 
@@ -50,8 +57,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                            <!-- <li><a href="{{ url('/login') }}">Login</a></li>
+                            <li><a href="{{ url('/register') }}">Register</a></li> -->
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -82,6 +89,8 @@
     </div>
 
     <!-- Scripts -->
+    <!-- Dropzone -->
+    <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
     <script src="/js/app.js"></script>
 </body>
 </html>
