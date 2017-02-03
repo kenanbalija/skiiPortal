@@ -33,4 +33,9 @@ Route::post('/novosti/update/save/{id}', 'NewsController@update');
 Route::post('/novosti/update/delete/{id}', 'NewsController@delete');
 
 Route::get('/rezultati', 'ResultsController@index');
+Route::get('/rezultati/add', 'ResultsController@add');
+Route::post('/rezultati/save', 'ResultsController@save');
+Route::post('/rezultati/delete/{id}', 'ResultsController@delete');
+
+
 Route::get('/sponzori', 'SponsorController@index');
