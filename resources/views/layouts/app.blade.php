@@ -42,7 +42,7 @@
 
 
 
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar  navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
                     <!-- Collapsed Hamburger -->
@@ -63,9 +63,11 @@
 
 
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
+                    
                       <li><a href="{{ url('/') }}">Početna</a></li>
                       <li><a href="{{ url('/galerija') }}">Galerija</a></li>
                       <li><a href="{{ url('/novosti') }}">Novosti</a></li>

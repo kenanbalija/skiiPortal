@@ -2,45 +2,62 @@
   text-align: center;
 }
 body, html{
-	font-family: 'Arial';
+	font-family: Arial;
 	text-rendering: optimizeLegibility !important;
 	-webkit-font-smoothing: antialiased !important;
 	color: #5a5a5a;
 }
-}
+
 #app {
 	transition: all 0.8s;
 	
 }
-#app .app-navbar-collapse{
+nav{
+	color: #606160;
+	border-radius: 0;
+	background-color: transparent;
+	font-weight: 700;
+
+}
+
+.navbar-brand, .navbar-nav>li>a{
+	color: #ffffff;
+    background-color: transparent;
+
+}
+.navbar-toggle>.icon-bar {
+	background-color: transparent;
+}
+
+#app a.navbar-brand {
+	text-transform: uppercase;
+	font-size: 22px;
+	color: #fff;
+	font-weight: 900;
+}
+
+#app .navbar-nav > li > a {
+	font: Arial;
 	text-transform: uppercase;
 	color: #FFF;
 	font-size: 12px;
 	letter-spacing: 1px;
+	background-color: transparent;
+}
+.nav>li>a:hover{
+	background-color: transparent;
 }
 
-#app .navbar-header {
-	text-transform: uppercase;
-	font-size: 22px;
-	color:	#A9A9A9;
-	font-weight: 900;
-	
-}
-
-#app .navbar-default .navbar-nav {
-	position: absolute;
-	top:0;
-	right:0;
-	width: 962;
-	text-transform: uppercase;
-}
 /*logo*/
+
 img{
 	width: 50px;
 	padding-left: all;            
 	float: left;
 }
+
 /*Pocetna*/
+
 #tf-home{
 	background: url(../img/01.jpg);
 	background-size: cover;
@@ -48,6 +65,8 @@ img{
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	color: #cfcfcf;
+	position: relative;
+	top: -180px;
 }
 
 #tf-home .overlay{
@@ -87,4 +106,59 @@ a.fa.fa-angle-down:hover{
 	background: #fcac45;
 	color: #ffffff;
 	border: 2px solid #fcac45;
+}
+
+/*Top Vijesti*/
+
+#tf-about{
+
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+ul.about-list{ 
+	margin: 0 0 0 ;
+	display: block;
+
+}
+ul.about-list li{
+	display: block;
+	font-size: 16px;
+	line-height: 50px;
+	font-family: 'Open Sans', sans-serif;
+}
+ul.about-list li span{ 
+	margin-right: -150px;
+	text-align: center;
+
+}
+h4{
+	position: relative;
+float: left;
+top: 50%;
+left: -15%;
+transform: translate(-50%, -50%);
+}
+
+/*O meni*/
+
+#tf-team{
+	background: url(../img/03.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	color: #ffffff;
+}
+#tf-team .overlay{
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.73) 17%, rgba(0,0,0,0.66) 35%, rgba(0,0,0,0.55) 62%, rgba(0,0,0,0.4) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.8)), color-stop(17%,rgba(0,0,0,0.73)), color-stop(35%,rgba(0,0,0,0.66)), color-stop(62%,rgba(0,0,0,0.55)), color-stop(100%,rgba(0,0,0,0.4))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#66000000',GradientType=0 ); /* IE6-9 */
+	height: auto;
+	background-attachment: fixed;
+	padding: 80px 0;
 }
