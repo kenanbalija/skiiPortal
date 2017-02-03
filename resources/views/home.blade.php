@@ -1,6 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+
+<!-- Pocetna
+    ==========================================-->
+    <div id="tf-home" class="text-center">
+        <div class="overlay">
+            <div class="content">
+                <h1>LOREM<strong><span class="color">LOREM</span></strong></h1>
+                <p class="lead">LOREM IPSUM <strong>LOREM</strong> IPSUM <strong>LOREM IPSUM</strong></p>
+                
+            </div>
+        </div>
+    </div>
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -43,6 +57,8 @@
                       be!
                     </div>
                     <div class="col-xs-6">
+                    </div>
+                    </div>
 
                     </div>
                   </div>
@@ -50,5 +66,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
