@@ -1,40 +1,53 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Rezultati</div>
+    <section class="addSpace">
 
-                <div class="panel-body">
-                    <table>
-                      <tr>
+    </section>
+    <br>
+    <div class="container">
+        <div class="">
+            <div class="section-title">
+                <!-- <h4></h4> -->
+                <h2 style="text-align: center;"><strong>Rezultati</strong></h2>
+                <div style="width: 60px; margin: 0 auto;" class="clearfix"><hr></div>
+            </div>
+            <div class="rezultati_home">
+                <table class="table">
+                    <thead class="thead-inverse">
+                    <tr>
                         <th>Naslov Takmičenja</th>
                         <th>Datum Takmičenja</th>
-                        <th>Rezultat Takmičenja</th>
-                        <th>DELETE</th>
+                        <th>Rezultat</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($results as $result)
 
-                      </tr>
-                      @foreach ($results as $result)
-                        <tr>
-                          <th>{{  $result->name  }}</th>
-                          <th>{{  $result->date  }}</th>
-                          <th>{{  $result->results  }}</th>
-                          <th>
-                            <form role="form" method="POST" action="{{ url('/rezultati/delete/'.$result->id) }}" enctype="multipart/form-data">
-                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                              <input class="btn-primary" type="submit" value="DELETE">
-                            </form>
-                          </th>
+                    <tr>
+                        <th scope="row">{{  $result->name  }}</th>
+                        <td>{{  $result->date  }}</td>
+                        <td>{!!  $result->results !!}
+                            @if(Auth::user())
+                                <form role="form" method="POST" action="{{ url('/rezultati/delete/'.$result->id) }}" enctype="multipart/form-data">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input class="btn btn-danger" type="submit" value="IZBRIŠI">
+                                </form>
+                                <br>
+                                <a class="btn btn-warning" href="{{ url('/rezultati/edit/'.$result->id)}}">EDIT</a>
+                            @endif
+                        </td>
+                    </tr>
+                    @endforeach
 
-                        </tr>
-                      @endforeach
-                    </table>
-                </div>
-                <a href="{{ url('/rezultati/add') }}">Dodaj novi</a>
+                    </tbody>
+                </table>
+
             </div>
+            @if(Auth::user())
+            <a class="btn btn-warning col-xs-12" href="{{ url('/rezultati/add') }}">Dodaj novi</a>
+            @endif
         </div>
-    </div>
-</div>
+    </div><br><br>
+    <br><br>
 @endsection

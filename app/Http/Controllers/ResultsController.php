@@ -30,6 +30,18 @@ class ResultsController extends Controller
     \Session::flash('flash_message', 'Uspješno ste kreirali novi rezultat');
     return redirect('/rezultati');
   }
+  public function edit($id){
+    $rezultat = Competition::find($id);
+    return view('rezultati.edit', compact('rezultat'));
+  }
+  public function update($id,Request $request) {
+    $rezultati = $request->all();
+    Competition::find($id)->update($rezultati);
+    \Session::flash('flash_message', 'Uspjesno ste promjenili rezultat!');
+    return redirect('/rezultati');
+  }
+
+
   public function delete($id){
     $rezultat = Competition::find($id);
     $rezultat ->delete();

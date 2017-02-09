@@ -18,7 +18,7 @@ class NewsController extends Controller
   //index page for /novosti route
   public function index()
   {
-    $novosti = Novost::all();
+    $novosti = Novost::orderBy('created_at', 'desc')->paginate(10);
     return view('novosti.novosti', compact('novosti'));
   }
   public function write(){
@@ -46,17 +46,15 @@ class NewsController extends Controller
     $novost_data = $store->all();
     $destination = public_path().'/img/news/';
     //dodati Input klasu
-
     $novost_img = Request::file('novost_img');
     $extension = $novost_img->getClientOriginalExtension();
-
     $fileName = time().rand(11111,99999).'.'.$extension;
-    //dodati Image klasu
+    //dodati Image objekat
     Image::make($novost_img->getRealPath())->save($destination.$fileName);
     $novost_data['novost_img'] = $fileName;
-
     Novost::create($novost_data);
     \Session::flash('flash_message', 'Uspješno ste kreirali novu vijest!');
     return redirect('/novosti');
   }
+
 }

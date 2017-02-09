@@ -13,6 +13,7 @@
 
 
 Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'HomeController@index');
 Route::get('/home', function(){
   return redirect()->action('HomeController@index');
@@ -35,7 +36,14 @@ Route::post('/novosti/update/delete/{id}', 'NewsController@delete');
 Route::get('/rezultati', 'ResultsController@index');
 Route::get('/rezultati/add', 'ResultsController@add');
 Route::post('/rezultati/save', 'ResultsController@save');
+Route::get('/rezultati/edit/{id}', 'ResultsController@edit');
+Route::post('/rezultati/update/{id}', 'ResultsController@update');
 Route::post('/rezultati/delete/{id}', 'ResultsController@delete');
 
 
 Route::get('/sponzori', 'SponsorController@index');
+Route::get('/sponzori/add', 'SponsorController@add');
+Route::post('/sponzori/save', 'SponsorController@save');
+Route::post('/sponzori/delete/{id}', 'SponsorController@delete');
+
+Route::post('/sendform', 'MailController@send');

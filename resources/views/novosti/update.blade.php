@@ -1,29 +1,62 @@
 @extends('layouts.app')
 @section('content')
-<section>
-  <div class="col-xs-12">
-      <div class="">
-        {{ $novosti->novost_title }}
+<section class="addSpace">
+
+</section><br><br>
+<section class="container">
+    <div class="row">
+      <div class="col-xs-12">
+          <div class="">
+            <h2 style="text-align:center;"><strong>{{ $novosti->novost_title }}</strong></h2><br>
+          </div>
+          <img class="col-xs-12 col-md-6 " src="{{ url('/img/news/'.$novosti->novost_img)}}">
+          <div class="col-xs-12 col-md-6 " style="">
+            {!!$novosti->novost_body !!}
+              <div class="col-xs-12">
+                  <div class="col-xs-4">
+                      <div class="fb-share-button " data-href="{{ url('/novosti/update/'.$novosti->id )}}" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+                          <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
+                              Podjeli
+                          </a>
+                      </div>
+                  </div>
+                  <div class="col-xs-4">
+                      <a class="twitter-share-button ">
+                          href="https://twitter.com/intent/tweet?text={{ url('/novosti/update/'.$novosti->novost_body )}}">
+                          Tweet
+                      </a>
+                  </div>
+                  <div class="col-xs-4">
+                      <div class="g-plus " data-action="share" data-annotation="bubble" data-height="60" data-href="{{ url('/novosti/update/'.$novosti->id )}}"></div>
+                  </div>
+              </div>
+          </div>
+        <section class="row" style="text-align: center;">
+
+        </section>
       </div>
-      <img style="width: 100%; height: 100%;" src="{{ url('/img/news/'.$novosti->novost_img)}}">
-      <div class="">
-        {{ $novosti->novost_body }}
-      </div>
-  </div>
+
+
+    </div>
 </section>
+<br>
+@if(Auth::user())
 <div class="container">
-  <h3>PROMJENITE VIJEST</h3>
-  <form role="form" method="POST" action="{{ url('/novosti/update/save', $novosti->id) }}" enctype="multipart/form-data">
+  <h3 style="text-align: center;"><strong>PROMJENITE VIJEST</strong></h3>
+  <form class="" role="form" method="POST" action="{{ url('/novosti/update/save', $novosti->id) }}" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <input type="text" name="novost_title" value="{{ $novosti->novost_title }}"><br/><br/>
-    <input type="text" name="novost_body" value="{{ $novosti->novost_body }}"><br/>
-    <input class="btn-primary" type="submit" value="UPDATE">
+    <input class="form-control" type="text" name="novost_title" value="{{ $novosti->novost_title }}"><br/><br/>
+      <textarea type="text" name="novost_body" value="">{{ $novosti->novost_body }}</textarea><br/><br>
+    <input class="btn-warning" type="submit" value="UPDATE">
   </form>
+    <br>
 </div>
 <section class="container">
   <form role="form" method="POST" action="{{ url('/novosti/update/delete', $novosti->id) }}" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <input class="btn-primary" type="submit" value="DELETE">
+    <input class="btn-danger" type="submit" value="DELETE">
   </form>
 </section>
+@endif
+<br><br>
 @stop

@@ -1,6 +1,11 @@
+body {
+  background-color: #323232;
+
+}
 .panel-body .row div {
   text-align: center;
 }
+
 body, html{
 	font-family: Arial;
 	text-rendering: optimizeLegibility !important;
@@ -10,7 +15,7 @@ body, html{
 
 #app {
 	transition: all 0.8s;
-	
+
 }
 nav{
 	color: #606160;
@@ -52,7 +57,7 @@ nav{
 
 img{
 	width: 50px;
-	padding-left: all;            
+	padding-left: all;
 	float: left;
 }
 
@@ -116,7 +121,7 @@ a.fa.fa-angle-down:hover{
 	top: 50%;
 	transform: translateY(-50%);
 }
-ul.about-list{ 
+ul.about-list{
 	margin: 0 0 0 ;
 	display: block;
 
@@ -127,7 +132,7 @@ ul.about-list li{
 	line-height: 50px;
 	font-family: 'Open Sans', sans-serif;
 }
-ul.about-list li span{ 
+ul.about-list li span{
 	margin-right: -150px;
 	text-align: center;
 

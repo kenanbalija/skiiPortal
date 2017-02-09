@@ -1,35 +1,75 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Vijesti</div>
+<section class="addSpace">
 
-                <div class="panel-body">
-                    <div class="row">
+</section>
+<br>
+
+      <div class="container">
+          <div class="row">
+              <!-- <div class="col-md-6">
+                  <img src="img/02.png" class="img-responsive">
+              </div> -->
+              <div class="col-md-12">
+                  <div class="about-text">
+                      <div class="section-title">
+                          <!-- <h4></h4> -->
+                          <h2 style="text-align: center;"><strong>Vijesti</strong></h2>
+
+                          <div style="width: 60px; margin: 0 auto;" class="clearfix"><hr></div>
+                      </div>
+                      <div>
+                          @if(Auth::user())
+                            <a class="btn btn-warning col-xs-12" href="{{url('/novosti/write')}}">Dodaj novu vijest</a>
+                              <br>
+                          @endif
+                      </div>
+                      <div class="novosti_home row">
                       @foreach ($novosti as $news)
-                        <a href="{{ url('/novosti/update/'.$news->id )}}">
-                          <div class="col-xs-12">
-                              <div class="">
+                          <div class="col-xs-12 col-sm-6">
+                              <a href="{{ url('/novosti/update/'.$news->id )}}">
+
+                              <div class="newsTitle">
                                 {{ $news->novost_title }}
                               </div>
-                              <img style="width: 100%; height: 100%;" src="{{ url('/img/news/'.$news->novost_img)}}">
-                              <div class="">
-                                {{ $news->novost_body }}
+                              <div class="newsImageContainer2">
+                                  <img class="newsImage" src="{{ url('/img/news/'.$news->novost_img)}}">
                               </div>
-                          </div>
-                        </a>
-                      @endforeach
+                              <div class="">
+                                {!! $news->novost_body !!}
+                              </div>
+                            </a><br>
+                            <section class="row" style="text-align: center;">
+                              <div class="col-xs-4">
+                                  <div class="fb-share-button " data-href="{{ url('/novosti/update/'.$news->id )}}" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+                                      <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
+                                          Podjeli
+                                      </a>
+                                  </div>
+                              </div>
+                                  <div class="col-xs-4">
+                                      <a class="twitter-share-button ">
+                                          href="https://twitter.com/intent/tweet?text={{ url('/novosti/update/'.$news->id )}}">
+                                          Tweet
+                                      </a>
+                                  </div>
+                              <div class="col-xs-4">
+                                  <div class="g-plus " data-action="share" data-annotation="bubble" data-height="60" data-href="{{ url('/novosti/update/'.$news->id )}}"></div>
+                              </div>
+                            </section>
 
-                    </div>
-                </div>
-                <section>
-                  <a href="{{ url('/novosti/write')}}">NOVO</a>
-                </section>
-            </div>
-        </div>
-    </div>
-</div>
+                          </div>
+
+                          @endforeach
+                      </div>
+                  </div>
+                  <section style="margin: 0 auto; position: relative; width: 100%; text-align:center;">
+                    {{ $novosti->links() }}
+                  </section>
+                  </div>
+
+              </div>
+          </div><br>
+
 @endsection
