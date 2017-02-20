@@ -110,7 +110,11 @@
 
                 return t;
             }(document, "script", "twitter-wjs"));</script>
-
+            @if (Session::has('flash_message'))
+            <div class="flash_message">{{ Session::get('flash_message') }}</div>
+            
+            @endif
+            @yield('content')
       <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -142,7 +146,7 @@
         </div><!-- /.container-fluid -->
       </nav>
         <div>
-            @yield('content')
+            
 
         </div>
         <br><br><br><br>
@@ -197,6 +201,10 @@
             $(this).ekkoLightbox();
         });
     </script>
-
+    <script>
+        $(document).ready(function(){
+            $(".flash_message").delay(3000).fadeOut(500);
+        });
+    </script>
 </body>
 </html>

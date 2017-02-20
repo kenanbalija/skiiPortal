@@ -26,4 +26,8 @@ class HomeController extends Controller
         $novosti = Novost::orderBy('created_at', 'desc')->paginate(3);
         return view('home', compact('novosti'));
     }
+
+    public function indexMK(){
+
+    }
 }

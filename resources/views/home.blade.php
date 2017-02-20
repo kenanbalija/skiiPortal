@@ -2,20 +2,12 @@
 
 @section('content')
 
-<div >
+<div>
   <div id="tf-home" class="text-center">
-      <div class="overlay">
-          {{--<video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>--}}
-              {{--<!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->--}}
-              {{--<source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm">--}}
-              {{--<source src="http://thenewcode.com/assets/videos/polina.mp4" type="video/mp4">--}}
-          {{--</video>--}}
-          <div class="content">
-              <h1><strong><span class="color">Dobrodošli</span></strong></h1>
-              <p class="lead">Ja sam <strong>Fahro Ćatović</strong></p>
-              <a href="#tf-about" class="fa fa-angle-down page-scroll"></a>
-          </div>
-      </div>
+        <video class="videoFix" autoplay loop muted preload >
+          <source src="{{ asset('img/video2.mp4' )}}" type="video/mp4">
+          <source src="{{ asset('img/video2.mp4' )}}" type="video/ogg">
+        </video>
   </div>
 
 <!-- About Us Page
@@ -117,7 +109,32 @@
                           <div class="caption">
                               <h3>Moja Priča</h3>
                               <!-- <p>CEO / Founder</p> -->
-                              <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                              <p>Fahro Ćatović rođen je u Brčkom 1978. godine, a već  više od dvadeset godina živi u Sarajevu.</p>
+
+                                  <p>Nakon teškog ranjavanja 1993. godine,  sa samo 15 godina, preživio je obostranu  visoku amputaciju, nakon koje se kreće uz pomoć invalidskih kolica.</p>
+
+                                  <p>Poslije dugogodišnjeg liječenja u inostranstvu, po povratku u BiH, počinje sa svakodnevnom borbom sa neprilagođenim životnim uslovima za osobe sa posebnim potrebama u BiH.</p>
+
+                                  <p>Vedar duh, neizmjerna volja za životom i smisao za šalu - glavne su karakteristike ovog bh. paraolimpijca.</p>
+
+
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="item">
+                      <div class="thumbnail">
+                          <img src="img/team/03.jpg" alt="..." class="img-circle team-img">
+                          <div class="caption">
+                              <h3>Biciklizam</h3>
+                              <!-- <p>CEO / Founder</p> -->
+                                <p>Prvi dodir sa profesionalnim sportom je bio biciklizam, te je imao debi u Ljubljani kada je kao jedini učesnik iz BiH učestovavo na maratonu u dužini od 42 km. </p>
+
+                                  <p>Na 19. ljubljanskom maratonu, 41.195 metara prešao je u vremenu od dva sata i 18 minuta. </p>
+
+                                  <p>U ovom sportu je prvi u  Bosni i Hercegovini.</p>
+
+                                  <p>To je državni  rekord  ,u kojem  ima namjeru oboriti barem još nekoliko puta.</p>
                           </div>
                       </div>
                   </div>
@@ -128,18 +145,10 @@
                           <div class="caption">
                               <h3>Skijanje</h3>
                               <!-- <p>CEO / Founder</p> -->
-                              <p>Skijanjem sam se poceo baviti...</p>
-                          </div>
-                      </div>
-                  </div>
+                              <p>Blizina olimpijskih ljepotica Bjelašnice i Jahorine, te nemogućnost kretanja po sarajevskim ulicama tokom zime, bili su jedan od motiva da se počne aktivno baviti skijanjem.</p>
+                              <p>Tako je 2014. godine uz snažnu želju i volju  naučio da skija, poslije samo  tri dana treninga sa instruktoricom u  Austriji. </p>
+                              <p>U 2016. godini, dobio je poziv od Paraolimpijskog  komiteta BiH da se priključi reprezentaciji u alpskom skijanju.</p>
 
-                  <div class="item">
-                      <div class="thumbnail">
-                          <img src="img/team/03.jpg" alt="..." class="img-circle team-img">
-                          <div class="caption">
-                              <h3>#VJEŠTINA 2</h3>
-                              <!-- <p>CEO / Founder</p> -->
-                              <p>Do not seek to change what has come before. Seek to create that which has not.</p>
                           </div>
                       </div>
                   </div>
@@ -148,14 +157,44 @@
                       <div class="thumbnail">
                           <img src="img/team/04.jpg" alt="..." class="img-circle team-img">
                           <div class="caption">
-                              <h3>#VJEŠTINA 3</h3>
+                              <h3>Takmičenja</h3>
                               <!-- <p>CEO / Founder</p> -->
-                              <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+
+                                 <p>Na međunarodnoj skijaškoj sceni predstavlja našu zemlju i nastupa pod pokroviteljstvom Paraolimpijskog komiteta BiH.</p>
+
+                                  <p>Prvo takmičenje i klasifikaciju imao je u Rinnu u Austriji u januaru 2017. godine.</p>
+
+                                  <p>Sretno oženjen, otac  tri  kćerke.</p>
                           </div>
                       </div>
                   </div>
 
               </div>
+              {{--<div class="item">
+              Fahro Ćatović rođen je u Brčkom 1978. godine, a već  više od dvadeset godina živi u Sarajevu.
+
+              Nakon teškog ranjavanja 1993. godine,  sa samo 15 godina, preživio je obostranu  visoku amputaciju, nakon koje se kreće uz pomoć invalidskih kolica.
+
+              Poslije dugogodišnjeg liječenja u inostranstvu, po povratku u BiH, počinje sa svakodnevnom borbom sa neprilagođenim životnim uslovima za osobe sa posebnim potrebama u BiH.
+
+              Vedar duh, neizmjerna volja za životom i smisao za šalu - glavne su karakteristike ovog bh. paraolimpijca.
+
+              Prvi dodir sa profesionalnim sportom je bio biciklizam, te je imao debi u Ljubljani kada je kao jedini učesnik iz BiH učestovavo na maratonu u dužini od 42 km. Na 19. ljubljanskom maratonu, 41.195 metara prešao je u vremenu od dva sata i 18 minuta.
+              U ovom sportu je prvi u  Bosni i Hercegovini.
+              To je državni  rekord  ,u kojem  ima namjeru oboriti barem još nekoliko puta.
+
+              Blizina olimpijskih ljepotica Bjelašnice i Jahorine, te nemogućnost kretanja po sarajevskim ulicama tokom zime, bili su jedan od motiva da se počne aktivno baviti skijanjem.
+              Tako je 2014. godine uz snažnu želju i volju  naučio da skija, poslije samo  tri dana treninga sa instruktoricom u  Austriji.
+
+              U 2016. godini, dobio je poziv od Paraolimpijskog  komiteta BiH da se priključi reprezentaciji u alpskom skijanju.
+
+              Na međunarodnoj skijaškoj sceni predstavlja našu zemlju i nastupa pod pokroviteljstvom Paraolimpijskog komiteta BiH.
+
+              Prvo takmičenje i klasifikaciju imao je u Rinnu u Austriji u januaru 2017. godine.
+
+              Sretno oženjen, otac  tri  kćerke.
+
+              </div>--}}
 
           </div>
           <a style="margin-top: 100px;" href="#tf-services" class="fa fa-angle-down page-scroll"></a>

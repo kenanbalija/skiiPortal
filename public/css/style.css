@@ -120,7 +120,7 @@ font-weight: 900;
 	}
 /* Home Style */
 #tf-home{
-	background: url(../img/01.jpg);
+	background: url(../img/video.mp4);
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -778,4 +778,22 @@ table {
 #tf-home .overlay {
 		height: 550px;
 	}
+}
+
+.videoFix {
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+
+.flash_message {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #fcac45;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    color: rgba(157, 8, 12, 1);
+    z-index: 1001;
 }
