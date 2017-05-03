@@ -18,6 +18,7 @@
                     <tr>
                         <th>Naslov Takmičenja</th>
                         <th>Datum Takmičenja</th>
+                        <th>Disciplina</th>
                         <th>Rezultat</th>
                     </tr>
                     </thead>
@@ -27,6 +28,7 @@
                     <tr>
                         <th scope="row">{{  $result->name  }}</th>
                         <td>{{  $result->date  }}</td>
+                        <td>{{  $result->disciplina  }}</td>
                         <td>{!!  $result->results !!}
                             @if(Auth::user())
                                 <form role="form" method="POST" action="{{ url('/rezultati/delete/'.$result->id) }}" enctype="multipart/form-data">

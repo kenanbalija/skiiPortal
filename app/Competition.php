@@ -9,6 +9,7 @@ class Competition extends Model
     protected $fillable = [
       'name',
       'date',
+   	  'disciplina',
       'results'
     ];
 }

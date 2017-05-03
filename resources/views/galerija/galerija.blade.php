@@ -25,7 +25,6 @@
                                         <div class="albumImageCont">
                                             <img  class="albumImage"  src="{{ url($album->images[$i]->file_path)}}" alt="">
                                         </div>
-
                                     @endfor
                                 @endif
                             </div>

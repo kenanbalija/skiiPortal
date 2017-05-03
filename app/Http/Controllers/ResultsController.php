@@ -25,6 +25,7 @@ class ResultsController extends Controller
     $rezultat = new Competition;
     $rezultat->name=$request->input('name');
     $rezultat->date=$request->input('date');
+    $rezultat->disciplina=$request->input('disciplina');
     $rezultat->results=$request->input('results');
     $rezultat->save();
     \Session::flash('flash_message', 'Uspješno ste kreirali novi rezultat');

@@ -11,7 +11,8 @@
 
         <input class="form-control" type="text" name="name" placeholder="Naslov Takmicenja" required=""><br/><br/>
         <input class="form-control" type="date" name="date" placeholder="Datum Takmicenja" required=""><br/><br/>
-        <textarea class="form-control" type="text" name="results" placeholder="" required=""></textarea><br/><br/>
+        <input class="form-control" type="text" name="disciplina" placeholder="Disciplina" required=""><br/><br/>
+        <textarea class="form-control" type="text" name="results" placeholder="Rezultat" required=""></textarea><br/><br/>
         <input class="btn btn-warning" type="submit" value="Sačuvaj">
     </form>
 </div><br><br>

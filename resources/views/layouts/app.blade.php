@@ -157,8 +157,8 @@
                 </div>
                 <div class="pull-right fnav">
                     <ul class="footer-social">
-                        <li><a href="https://www.facebook.com/fahro.catovic"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/fahro-catovic-aa80645"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="https://www.facebook.com/catovicfahro"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/fahro_catovic/?hl=hr "><i class="fa fa-instagram"></i></a></li>
                         <!-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li> -->
                         <li><a href="https://twitter.com/fahrocatovic"><i class="fa fa-twitter"></i></a></li>
                     </ul>
@@ -175,13 +175,38 @@
     <script type="text/javascript" src="{{url('js/bootstrap.js')}}"></script>
     <script type="text/javascript" src="{{url('js/SmoothScroll.js')}}"></script>
     <script type="text/javascript" src="{{url('js/jquery.isotope.js')}}"></script>
-    <script src="{{url('js/owl.carousel.js')}}"></script>
-    <script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
+    <script src="{{ url('js/owl.carousel.js') }}"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
         <script>
             CKEDITOR.replace( 'novost_body' );
         </script>
         <script>
             CKEDITOR.replace( 'results' );
+        </script>
+        <script>
+            CKEDITOR.replace( 'naslov1_body' );
+        </script>
+        <script>
+            CKEDITOR.replace( 'naslov2_body' );
+        </script>
+        <script>
+            CKEDITOR.replace( 'naslov3_body' );
+        </script>
+        <script>
+            CKEDITOR.replace( 'naslov4_body' );
+        </script>
+
+     <script>
+            CKEDITOR.replace( 'naslov1' );
+        </script>
+        <script>
+            CKEDITOR.replace( 'naslov2' );
+        </script>
+        <script>
+            CKEDITOR.replace( 'naslov3' );
+        </script>
+        <script>
+            CKEDITOR.replace( 'naslov4' );
         </script>
     <!-- Javascripts
     ================================================== -->

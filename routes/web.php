@@ -19,12 +19,18 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', function(){
   return redirect()->action('HomeController@index');
 });
+Route::get('/home/about', 'HomeController@about_change');
+Route::post('/home/about/save/{id}', 'HomeController@about_save');
 
 Route::get('/galerija', 'GalleryController@index');
 Route::post('/galerija/save', 'GalleryController@save');
+Route::post('/galerija/update/{id}', 'GalleryController@update');
 Route::post('/galerija/delete/{id}', 'GalleryController@delete');
 Route::get('/galerija/view/{id}', 'GalleryController@view');
+Route::post('/galerija/view/delete/{id}', 'GalleryController@delete');
 Route::post('image/do-upload', 'GalleryController@do_image_upload');
+Route::post('destroy/{id}', 'GalleryController@destroy');
+
 
 
 Route::get('/novosti', 'NewsController@index');

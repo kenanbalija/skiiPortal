@@ -16,10 +16,10 @@ public function send(Request $request){
         'message_s'=>$request->input('messageSender'),
         ], function($message)
         {
-            $message->to('kenan_balija@hotmail.com', 'NO REPLY')->subject('Nova poruka sa stranice');
-            $message->to('conanobalija@gmail.com', 'NO REPLY')->subject('Nova poruka sa stranice');
+            $message->to('info@fahrocatovic.ba', 'NO REPLY')->subject('Nova poruka sa stranice');
         }
         );
+    \Session::flash('flash_message', 'Uspješno ste poslali poruku');
     return redirect('/');
     }
 

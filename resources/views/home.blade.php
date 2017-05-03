@@ -5,8 +5,8 @@
 <div>
   <div id="tf-home" class="text-center">
         <video class="videoFix" autoplay loop muted preload >
-          <source src="{{ asset('img/video2.mp4' )}}" type="video/mp4">
-          <source src="{{ asset('img/video2.mp4' )}}" type="video/ogg">
+          <source src="{{ url('/img/video2.mp4' )}}" type="video/mp4">
+          <source src="{{ url('/img/video2.mp4' )}}" type="video/ogg">
         </video>
   </div>
 
@@ -44,17 +44,18 @@
                       <div class="novosti_home row">
                         @foreach ($novosti as $news)
                             <div class="col-xs-12 col-md-4">
+                                <a href="{{ url('/novosti/update/'.$news->id )}}">
                                 <div class="newsTitle">
                                   {{ $news->novost_title }}
                                 </div>
-                                <a href="{{ url('/novosti/update/'.$news->id )}}">
-
-                                <div  class="newsImageContainer">
-                                  <img class="newsImage" src="{{ url('/img/news/'.$news->novost_img)}}">
-                                </div>
-                                <div class="newsText">
-                                    {!! $news->novost_body !!}
-                                </div>
+                                @if($news->novost_img)
+                                    <div  class="newsImageContainer">
+                                      <img class="newsImage" src="{{ url('/img/news/'.$news->novost_img)}}">
+                                    </div> 
+                                @endif
+                                  <div class="newsText">
+                                      {!! $news->novost_body !!}
+                                  </div>
                                 </a>
                                 <br>
                               <section class="row" style="text-align: center;">
@@ -97,26 +98,45 @@
           <div class="container">
               <div class="section-title center">
                   <h2 class="titleAnimate">o <strong>meni</strong></h2>
+
                   <div class="line">
                       <hr>
                   </div>
               </div>
-
+              @if(Auth::user())
+                <a href="{{url('/home/about')}}"><button class="btn btn-warning">Izmjeni Tekst</button></a>
+              @endif
               <div id="team" class="owl-carousel owl-theme row">
+              @foreach($texts as $text)
                   <div class="item">
                       <div class="thumbnail">
-                          <img src="img/team/01.jpg" alt="..." class="img-circle team-img">
+                          <!-- <img src="img/team/01.jpg" alt="..." class="img-circle team-img"> -->
                           <div class="caption">
-                              <h3>Moja Priča</h3>
+                              <h3>{!! $text->naslov1 !!}</h3>
                               <!-- <p>CEO / Founder</p> -->
-                              <p>Fahro Ćatović rođen je u Brčkom 1978. godine, a već  više od dvadeset godina živi u Sarajevu.</p>
+                              {!! $text->naslov1_body !!}
+                          </div>
+                      </div>
+                  </div>
 
-                                  <p>Nakon teškog ranjavanja 1993. godine,  sa samo 15 godina, preživio je obostranu  visoku amputaciju, nakon koje se kreće uz pomoć invalidskih kolica.</p>
+                  <div class="item">
+                      <div class="thumbnail">
+                          <!-- <img src="img/team/03.jpg" alt="..." class="img-circle team-img"> -->
+                          <div class="caption">
+                              <h3>{!! $text->naslov2 !!}</h3>
+                              <!-- <p>CEO / Founder</p> -->
+                                {!! $text->naslov2_body !!}
+                          </div>
+                      </div>
+                  </div>
 
-                                  <p>Poslije dugogodišnjeg liječenja u inostranstvu, po povratku u BiH, počinje sa svakodnevnom borbom sa neprilagođenim životnim uslovima za osobe sa posebnim potrebama u BiH.</p>
-
-                                  <p>Vedar duh, neizmjerna volja za životom i smisao za šalu - glavne su karakteristike ovog bh. paraolimpijca.</p>
-
+                  <div class="item">
+                      <div class="thumbnail">
+                          <!-- <img src="img/team/02.jpg" alt="..." class="img-circle team-img"> -->
+                          <div class="caption">
+                              <h3>{!! $text->naslov3 !!}</h3>
+                              <!-- <p>CEO / Founder</p> -->
+                              {!! $text->naslov3_body !!}
 
                           </div>
                       </div>
@@ -124,50 +144,15 @@
 
                   <div class="item">
                       <div class="thumbnail">
-                          <img src="img/team/03.jpg" alt="..." class="img-circle team-img">
+                          <!-- <img src="img/team/04.jpg" alt="..." class="img-circle team-img"> -->
                           <div class="caption">
-                              <h3>Biciklizam</h3>
+                              <h3>{!! $text->naslov4 !!}</h3>
                               <!-- <p>CEO / Founder</p> -->
-                                <p>Prvi dodir sa profesionalnim sportom je bio biciklizam, te je imao debi u Ljubljani kada je kao jedini učesnik iz BiH učestovavo na maratonu u dužini od 42 km. </p>
-
-                                  <p>Na 19. ljubljanskom maratonu, 41.195 metara prešao je u vremenu od dva sata i 18 minuta. </p>
-
-                                  <p>U ovom sportu je prvi u  Bosni i Hercegovini.</p>
-
-                                  <p>To je državni  rekord  ,u kojem  ima namjeru oboriti barem još nekoliko puta.</p>
+                              {!! $text->naslov4_body !!} 
                           </div>
                       </div>
                   </div>
-
-                  <div class="item">
-                      <div class="thumbnail">
-                          <img src="img/team/02.jpg" alt="..." class="img-circle team-img">
-                          <div class="caption">
-                              <h3>Skijanje</h3>
-                              <!-- <p>CEO / Founder</p> -->
-                              <p>Blizina olimpijskih ljepotica Bjelašnice i Jahorine, te nemogućnost kretanja po sarajevskim ulicama tokom zime, bili su jedan od motiva da se počne aktivno baviti skijanjem.</p>
-                              <p>Tako je 2014. godine uz snažnu želju i volju  naučio da skija, poslije samo  tri dana treninga sa instruktoricom u  Austriji. </p>
-                              <p>U 2016. godini, dobio je poziv od Paraolimpijskog  komiteta BiH da se priključi reprezentaciji u alpskom skijanju.</p>
-
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="item">
-                      <div class="thumbnail">
-                          <img src="img/team/04.jpg" alt="..." class="img-circle team-img">
-                          <div class="caption">
-                              <h3>Takmičenja</h3>
-                              <!-- <p>CEO / Founder</p> -->
-
-                                 <p>Na međunarodnoj skijaškoj sceni predstavlja našu zemlju i nastupa pod pokroviteljstvom Paraolimpijskog komiteta BiH.</p>
-
-                                  <p>Prvo takmičenje i klasifikaciju imao je u Rinnu u Austriji u januaru 2017. godine.</p>
-
-                                  <p>Sretno oženjen, otac  tri  kćerke.</p>
-                          </div>
-                      </div>
-                  </div>
+                @endforeach
 
               </div>
               {{--<div class="item">
@@ -213,32 +198,38 @@
                   <hr>
               </div>
               <div class="clearfix"></div>
-              <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small>
+              <small><em>
+                
+              </em></small>
           </div>
           <div class="space"></div>
           <div class="row">
               <div class="col-md-3 col-sm-6 service">
-                  <i class="fa fa-desktop"></i>
-                  <h4><strong>#cilj 1</strong></h4>
-                  <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                  <i class="fa fa-trophy"></i>
+                  <h4><strong>cilj 1</strong></h4>
+                  <p>Odlazak na Paraolimpijske zimske igre u Pyongyangu 2018. godine<br/>
+                <a href="https://twitter.com/hashtag/pyongyang?lang=en"><em>#pyongyang2018</em></a></p>
               </div>
 
               <div class="col-md-3 col-sm-6 service">
-                  <i class="fa fa-mobile"></i>
-                  <h4><strong>#cilj 2</strong></h4>
-                  <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                  <i class="fa fa-bullseye"></i>
+                  <h4><strong>cilj 2</strong></h4>
+                  <p>Promocija skijanja za osobe sa invaliditetom<br/>
+                    <a href="https://twitter.com/search?q=%23sportzasve%20&src=typd&lang=en"><em>#sportzasve</em></a> </p>
               </div>
 
               <div class="col-md-3 col-sm-6 service">
-                  <i class="fa fa-camera"></i>
+                  <i class="fa fa-globe"></i>
                   <h4><strong>cilj 3</strong></h4>
-                  <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                  <p>Motivisati osobe sa invaliditetom da se bave sportom <br/>
+                  <a href="https://twitter.com/search?f=tweets&q=%23sportomzazdravlje&src=typd"><em>#sportomzazdravlje</em></a></p>
               </div>
 
               <div class="col-md-3 col-sm-6 service">
                   <i class="fa fa-bullhorn"></i>
                   <h4><strong>cilj 4</strong></h4>
-                  <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                  <p>Uključiti širu zajednicu u razvoj sporta za osobe sa invaliditetom<br/>
+                    <a href="https://twitter.com/search?f=tweets&q=%23jednakemogucnostizasve&src=typd"><em>#jednakemogucnostizasve</em></a></p>
               </div>
           </div>
       </div>
@@ -306,7 +297,7 @@
                               <li>061 269 706</li>
                           </ul>
                           <ul class="col-sm-4" style="list-style-type: none;">
-                              <li><a href="https://www.facebook.com/fahro.catovic"><i class="fa fa-facebook"></i></a></li>
+                              <li><a href="https://www.facebook.com/catovicfahro"><i class="fa fa-facebook"></i></a></li>
                               <li><a href="https://www.instagram.com/fahro_catovic/"><i class="fa fa-instagram"></i></a></li>
                               <!-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li> -->
                               <li><a href="https://www.youtube.com/channel/UCf2kLhTD_dlNxDhn6lIjKxg"><i class="fa fa-youtube"></i></a></li>
@@ -323,19 +314,19 @@
 
                             <div class="form-group">
                                 <label for="nameSender">Ime</label>
-                                <input type="name" class="form-control" id="nameSender" placeholder="Vaše ime">
+                                <input type="name" class="form-control" id="nameSender" placeholder="Vaše ime" required>
                             </div>
                         </div>
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label for="emailSender">Email adresa</label>
-                                  <input type="email" class="form-control" id="emailSender" placeholder="Vaš email">
+                                  <input type="email" class="form-control" id="emailSender" placeholder="Vaš email" required>
                               </div>
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="messageSender">Poruka</label>
-                          <textarea id="messageSender" class="form-control" rows="3"></textarea>
+                          <textarea id="messageSender" class="form-control" rows="3" required></textarea>
                       </div>
 
                       <button type="submit" class="btn tf-btn btn-default">Submit</button>

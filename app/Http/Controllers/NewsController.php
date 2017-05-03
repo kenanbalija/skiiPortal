@@ -30,31 +30,51 @@ class NewsController extends Controller
   }
   public function update($id){
     $input = Request::all();
-    Novost::find($id)->update($input);
-    \Session::flash('flash_message', 'Uspjesno ste promjenili Vijest!');
-    return redirect('/');
+    $destination = public_path().'/img/news/';
+    if (Request::hasFile('novost_img')){
+      $novost_img = Request::file('novost_img');
+      $extension = $novost_img->getClientOriginalExtension();
+      $fileName = time().rand(11111,99999).'.'.$extension;
+      //dodati Image objekat
+      Image::make($novost_img->getRealPath())->save($destination.$fileName);
+      $input['novost_img'] = $fileName;
+      Novost::find($id)->update($input);
+      \Session::flash('flash_message', 'Uspjesno ste promjenili Vijest!');
+      return redirect('/novosti');
+      
+    } else {
+      Novost::find($id)->update($input);
+      \Session::flash('flash_message', 'Uspjesno ste promjenili Vijest!');
+      return redirect('/novosti');
+    }
+
   }
   public function delete($id){
     $novost = Novost::find($id);
     $novost->delete();
     \Session::flash('flash_message', 'Izbrisali ste Vijest!');
     return redirect('/');
-
-
   }
+
   public function save(StoreNovostPost $store){
     $novost_data = $store->all();
     $destination = public_path().'/img/news/';
     //dodati Input klasu
-    $novost_img = Request::file('novost_img');
-    $extension = $novost_img->getClientOriginalExtension();
-    $fileName = time().rand(11111,99999).'.'.$extension;
-    //dodati Image objekat
-    Image::make($novost_img->getRealPath())->save($destination.$fileName);
-    $novost_data['novost_img'] = $fileName;
-    Novost::create($novost_data);
-    \Session::flash('flash_message', 'Uspješno ste kreirali novu vijest!');
-    return redirect('/novosti');
+    if (Request::hasFile('novost_img')){
+      $novost_img = Request::file('novost_img');
+      $extension = $novost_img->getClientOriginalExtension();
+      $fileName = time().rand(11111,99999).'.'.$extension;
+      //dodati Image objekat
+      Image::make($novost_img->getRealPath())->save($destination.$fileName);
+      $novost_data['novost_img'] = $fileName;
+      Novost::create($novost_data);
+      \Session::flash('flash_message', 'Uspješno ste kreirali novu vijest!');
+      return redirect('/novosti');
+    } else {
+      $novost_data['novost_img'] = '';
+      Novost::create($novost_data);
+      \Session::flash('flash_message', 'Uspješno ste kreirali novu vijest!');
+      return redirect('/novosti');
+    }
   }
-
 }

@@ -33,9 +33,11 @@
                               <div class="newsTitle">
                                 {{ $news->novost_title }}
                               </div>
-                              <div class="newsImageContainer2">
-                                  <img class="newsImage" src="{{ url('/img/news/'.$news->novost_img)}}">
-                              </div>
+                              @if($news->novost_img)
+                                    <div  class="newsImageContainer">
+                                      <img class="newsImage" src="{{ url('/img/news/'.$news->novost_img)}}">
+                                    </div> 
+                                @endif
                               <div class="">
                                 {!! $news->novost_body !!}
                               </div>

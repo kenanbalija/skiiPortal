@@ -6,10 +6,12 @@
 <section class="container">
     <div class="row">
       <div class="col-xs-12">
-          <div class="">
-            <h2 style="text-align:center;"><strong>{{ $novosti->novost_title }}</strong></h2><br>
-          </div>
-          <img class="col-xs-12 col-md-6 " src="{{ url('/img/news/'.$novosti->novost_img)}}">
+          <div class="newsTitle">
+           {{ $novosti->novost_title }}
+          </div><br/>
+          @if($novosti->novost_img)
+            <img class="col-xs-12 col-md-6 " src="{{ url('/img/news/'.$novosti->novost_img)}}">
+          @endif
           <div class="col-xs-12 col-md-6 " style="">
             {!!$novosti->novost_body !!}
               <div class="col-xs-12">
@@ -46,15 +48,18 @@
   <form class="" role="form" method="POST" action="{{ url('/novosti/update/save', $novosti->id) }}" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <input class="form-control" type="text" name="novost_title" value="{{ $novosti->novost_title }}"><br/><br/>
-      <textarea type="text" name="novost_body" value="">{{ $novosti->novost_body }}</textarea><br/><br>
-    <input class="btn-warning" type="submit" value="UPDATE">
+    <textarea type="text" name="novost_body" value="">{{ $novosti->novost_body }}</textarea><br/><br>
+    <input  class="" size="60" type="file" placeholder="Slika" name="novost_img"><br/>
+
+    <input class="btn btn-warning" type="submit" value="UPDATE">
   </form>
     <br>
+
 </div>
 <section class="container">
   <form role="form" method="POST" action="{{ url('/novosti/update/delete', $novosti->id) }}" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <input class="btn-danger" type="submit" value="DELETE">
+    <input class="btn btn-danger" type="submit" value="DELETE">
   </form>
 </section>
 @endif
