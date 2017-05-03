@@ -1,9 +1,5 @@
 /node_modules
 /public/storage
-/public/storage
-/public/img/albums
-/public/img/news
-/public/img/sponzori
 /storage/*.key
 /vendor
 /.idea
